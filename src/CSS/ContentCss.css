@@ -1,0 +1,93 @@
+@font-face {
+    font-family: F1Regular;
+	src: url('../font/formula1-display-bold/Formula1-Regular_web_0.ttf') format('woff2');
+}
+
+@font-face {
+    font-family: F1Blod;
+	src: url('../font/formula1-display-bold/Formula1-Bold_web_0.ttf') format('woff2');
+}
+
+@font-face {
+    font-family: F1Wide;
+	src: url('../font/formula1-display-bold/Formula1-Wide_web_0.ttf') format('woff2');
+}
+
+.AllContent{
+    margin-left: 40px;
+}
+
+.content{
+    font-size: 24px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    width: 1240px;
+    margin: 64px 0px;
+    /* margin-left: 40px。; */
+}
+
+.img1{
+    width: 1374px;
+    height: 773px;
+    /* margin-left: 40px; */
+    border-radius: 10px;
+}
+
+.innerContent{
+    margin: 0px 246.5px;
+}
+
+.textArea{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* .textArea1{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 70px;
+} */
+
+.Video{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 70px;
+    
+}
+
+.text11{
+    
+    font-size: 20px;
+    font-family: F1Regular;
+    width: 800px;
+    padding: 20px 0;
+    /* opacity: 100%; */
+    font-weight:600;
+}
+
+.text1{
+    font-size: 24px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    width: 800px;
+    padding: 20px 0;
+    opacity: 70%;
+}
+
+.innerTitle{
+    padding: 20px;
+    font-size: 48px;
+    font-family: F1Regular;
+    width: 800px;
+}
+
+.imgComment{
+    border-color: gray;
+    color: gray;
+    border-left: 1.9px solid;
+    padding: 0 0 0 10px;
+}

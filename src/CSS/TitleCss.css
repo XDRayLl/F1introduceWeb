@@ -1,0 +1,12 @@
+@font-face {
+    font-family: F1Regular;
+	src: url('../font/formula1-display-bold/Formula1-Regular_web_0.ttf') format('woff2');
+}
+
+.Title{
+    font-size: 48px;
+    font-family: F1Regular;
+    width: 940px;
+    margin-top: 60px;
+    margin-left: 40px;
+}

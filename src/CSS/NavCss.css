@@ -1,0 +1,42 @@
+@font-face {
+    font-family: F1Regular;
+	src: url('../font/formula1-display-bold/Formula1-Regular_web_0.ttf') format('woff2');
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.nav{
+    display: flex;
+    justify-content: space-between;
+    background-color: black;
+}
+
+.nav .F1Logo{
+    width: 233px;
+    height: 58px;
+    margin-top: 7px;
+    margin-left: 7px;
+}
+
+.NavButtons{
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav .NavButtons .button{
+    display: flex;
+    width: 224px;
+    height: 72px;
+    border: 0;
+    font-size: 24px;
+    color: white;
+    font-family: F1Regular;
+    background-color: black;
+    justify-content: center;
+    align-items: center;
+}
+

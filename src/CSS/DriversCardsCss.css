@@ -1,0 +1,113 @@
+@font-face {
+    font-family: F1Regular;
+	src: url('../font/formula1-display-bold/Formula1-Regular_web_0.ttf') format('woff2');
+}
+
+@font-face {
+    font-family: F1Blod;
+	src: url('../font/formula1-display-bold/Formula1-Bold_web_0.ttf') format('woff2');
+}
+
+@font-face {
+    font-family: F1Wide;
+	src: url('../font/formula1-display-bold/Formula1-Wide_web_0.ttf') format('woff2');
+}
+
+.DriverCard {
+  display: flex;
+  margin: 50px;
+  background-color: orange;
+  border-radius: 8px;
+  height: 250px;
+  width: 442.43px;
+
+  /* 讓 ::before 依附在卡片內 */
+  position: relative;
+  overflow: hidden;  /* 避免 ::before 溢出 */
+
+  /* 漸層底色（先簡單一層就好） */
+  background: linear-gradient(to right, #ff6600, #ff6600 60%, #ff6600aa 100%);
+}
+
+/* 疊加點陣網格 */
+.DriverCard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  /* 白色小點 */
+  background-image: radial-gradient(rgba(255, 255, 255, 0.3) 1px, transparent 1px);
+  background-size: 12px 12px;
+
+  /* 遮罩：左邊淡 → 右邊密 */
+  -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: cover;
+
+  mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+  mask-repeat: no-repeat;
+  mask-size: cover;
+
+  /* 確保在背景層，不會蓋住內容 */
+  z-index: 0;
+}
+
+/* 確保裡面放的文字/圖片在最上層 */
+.DriverCard * {
+  position: relative;
+  z-index: 1;
+}
+
+
+.DriversNumber img{
+    width: 35px;
+    height: 24px;
+}
+
+.DriversTeams{
+    margin: 8px 0;
+}
+
+.LeftDownCountry{
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+   padding: 2.5px;              /* 白邊寬度 */
+  background: white;          /* 白邊顏色 */
+  border-radius: 50%;         /* 和圖片形狀一致 */
+}
+
+.LeftDownCountry img{
+    width: 20px;
+    height: 20px;
+    
+    clip-path: circle(50% at 50% 50%);
+    /* border: 3px solid white; */
+    /* box-shadow: 0 0 0 6px white; 白邊跟隨 clip-path */
+}
+
+.leftSide{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.LeftTop{
+    font-family: F1Regular;
+    color: rgb(241, 241, 241);
+}
+
+.DriversName{
+    font-size: 25px;
+}
+
+.rightSide{
+    padding: 20px;
+}
+
+.rightSide img{
+    width: 190px;
+  height: 460px;
+  clip-path: inset(0 0 50% 0); /* 從下方裁掉 50% */
+}

@@ -1,0 +1,105 @@
+@font-face {
+    font-family: F1Regular;
+	src: url('../font/formula1-display-bold/Formula1-Regular_web_0.ttf') format('woff2');
+}
+
+@font-face {
+    font-family: F1Blod;
+	src: url('../font/formula1-display-bold/Formula1-Bold_web_0.ttf') format('woff2');
+}
+
+@font-face {
+    font-family: F1Wide;
+	src: url('../font/formula1-display-bold/Formula1-Wide_web_0.ttf') format('woff2');
+}
+
+footer{
+    background-color: rgb(34, 34, 34);
+}
+
+.topFooter{
+    display: flex;
+    justify-content: space-between;
+}
+
+.topleftFooter{
+    font-family: F1Regular;
+    margin-left: 160px;
+    margin-top: 80px;
+    font-size: 40px;
+    color: white;
+}
+
+.toprightFooter{
+    margin-right: 160px;
+    margin-top: 80px;
+}
+
+.toprightFooter img{
+    width: 150px;
+    margin-top: 20px;
+}
+
+.footerNav{
+    margin: 40px 160px 0 160px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footerNav button{
+    width: 170px;
+    height: 60px;
+    background-color: rgb(34, 34, 34);
+    border: 0;
+    font-size: 24px;
+    color: white;
+    font-family: F1Regular;
+}
+
+.middleFooter img{
+    width: 80px;
+    height: 20px;
+    margin-top: 60px;
+    margin-left: 160px;
+}
+
+.middleFooter .middledownFooter{
+    display: flex;
+
+}
+
+.middleFooter .footerTwolines{
+    border: solid;
+    border-color: red;
+    width: 80%;
+    margin-left: 50px;
+    border-left: 0px;
+    border-right: 0px;
+    transform: skewX(-35deg); /* 左邊切斜 */
+    height: 10px;
+    margin-top: 65px;
+}
+
+.downFooter{
+    display: flex;
+    margin-left: 160px;
+    margin-top: 40px;
+}
+
+.social{
+    width: 25px;
+    height: 25px;
+    color: white;
+}
+
+.socialBox{
+    width: 50px;
+}
+
+.text{
+    margin-left: 160px;
+    padding-top: 40px;
+    color: white;
+    padding-bottom: 40px;
+}
+

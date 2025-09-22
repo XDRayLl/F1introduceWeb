@@ -1,0 +1,81 @@
+.Cards {
+  margin:0px;
+  width: 503.34px;
+  /* height: 160px; */
+  background-color: white;
+  border-radius: 10px;
+  font-family: F1Regular;
+  padding: 16px;
+}
+
+.Cards .CardTop {
+  display: flex;
+  justify-content: space-between;
+}
+
+.GPName img{
+  margin-Right: 10px;
+}
+
+.Cards .CardMid {
+  margin: 5px 0;
+}
+
+.Cards .CardMid .GPContent {
+  font-size: 10px;
+  opacity: 70%;
+}
+
+.Cards .CardDown {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.CardDownRank .Rank {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.CardDownRank{
+  height: 80.25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+}
+
+.Ranknum {
+  padding-top: 5px;
+  font-size: 15px;
+}
+
+.RankText{
+    font-size: 8px;
+    padding-bottom: 5px;
+}
+
+.Cards .CardDownRank .Rank {
+  width: 123.33px;
+  height: 33px;
+  background-color: rgba(253, 225, 189, 0.426);
+  border-radius: 5px;
+}
+
+.Cards .CardDown .RankMid {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.trackimg {
+  width: 100px;
+  height: 56.25px;
+  display: flex;
+}
+
+.GPimg{
+  width: 20px;
+  height: 15px;
+}

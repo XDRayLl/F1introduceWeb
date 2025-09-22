@@ -1,0 +1,9 @@
+.CardArea{
+    display: flex;
+    justify-content: space-between;
+    padding:10px 50px;
+}
+
+.CardAreas{
+    margin:100px 0;
+}
