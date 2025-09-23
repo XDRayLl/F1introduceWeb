@@ -12,23 +12,6 @@
     font-family: F1Wide;
 	src: url('../font/formula1-display-bold/Formula1-Wide_web_0.ttf') format('woff2');
 }
-
-.DriverCard {
-  display: flex;
-  margin: 50px;
-  background-color: orange;
-  border-radius: 8px;
-  height: 250px;
-  width: 442.43px;
-
-  /* 讓 ::before 依附在卡片內 */
-  position: relative;
-  overflow: hidden;  /* 避免 ::before 溢出 */
-
-  /* 漸層底色（先簡單一層就好） */
-  background: linear-gradient(to right, #ff6600, #ff6600 60%, #ff6600aa 100%);
-}
-
 /* 疊加點陣網格 */
 .DriverCard::before {
   content: "";
@@ -57,11 +40,189 @@
   position: relative;
   z-index: 1;
 }
+/* -------------------------------------------------------------------------------------------------------------------- */
+.MclDriverCard {
+  display: flex;
+  
+  background-color: orange;
+  border-radius: 8px;
+  height: 250px;
+  width: 350px;
 
+  /* 讓 ::before 依附在卡片內 */
+  position: relative;
+  overflow: hidden;  /* 避免 ::before 溢出 */
+
+  /* 漸層底色（先簡單一層就好） */
+  background: linear-gradient(to right, #ff6600, #ff6600 60%, #ff6600aa 100%);
+}
+
+/* -------------------------------------------------------------------------------------------------------------------- */
+.MerDriverCard {
+  display: flex;
+  
+  background-color: orange;
+  border-radius: 8px;
+  height: 250px;
+  width: 350px;
+
+  /* 讓 ::before 依附在卡片內 */
+  position: relative;
+  overflow: hidden;  /* 避免 ::before 溢出 */
+
+  /* 漸層底色（先簡單一層就好） */
+  background: linear-gradient(to right, #007560 , #01a184 60%, #01ffd0 100%);
+}
+
+/* ---------------------------------------------------------------------------------------------------------------------- */
+
+.FerDriverCard {
+  display: flex;
+  
+  background-color: orange;
+  border-radius: 8px;
+  height: 250px;
+  width: 350px;
+
+  /* 讓 ::before 依附在卡片內 */
+  position: relative;
+  overflow: hidden;  /* 避免 ::before 溢出 */
+
+  /* 漸層底色（先簡單一層就好） */
+  background: linear-gradient(to right, #710006 , #b80009 60%, #ff000d 100%);
+}
+
+/* ------------------------------------------------------------------------------------------------------------------ */
+
+.WilDriverCard {
+  display: flex;
+  
+  background-color: orange;
+  border-radius: 8px;
+  height: 250px;
+  width: 350px;
+
+  /* 讓 ::before 依附在卡片內 */
+  position: relative;
+  overflow: hidden;  /* 避免 ::before 溢出 */
+
+  /* 漸層底色（先簡單一層就好） */
+  background: linear-gradient(to right, #000681 , #000899 60%, #000ace 100%);
+}
+
+/* ---------------------------------------------------------------------------------------------------------------- */
+
+.RBDriverCard {
+  display: flex;
+  
+  background-color: orange;
+  border-radius: 8px;
+  height: 250px;
+  width: 350px;
+
+  /* 讓 ::before 依附在卡片內 */
+  position: relative;
+  overflow: hidden;  /* 避免 ::before 溢出 */
+
+  /* 漸層底色（先簡單一層就好） */
+  background: linear-gradient(to right, #2345ab , #274ec5 60%, #2d5be2 100%);
+}
+
+/* ------------------------------------------------------------------------------------------------------------------ */
+
+.AstDriverCard {
+  display: flex;
+  
+  background-color: orange;
+  border-radius: 8px;
+  height: 250px;
+  width: 350px;
+
+  /* 讓 ::before 依附在卡片內 */
+  position: relative;
+  overflow: hidden;  /* 避免 ::before 溢出 */
+
+  /* 漸層底色（先簡單一層就好） */
+  background: linear-gradient(to right, #00482c , #008351 60%, #008d57 100%);
+}
+
+/* ------------------------------------------------------------------------------------------------------------------ */
+
+.RBRDriverCard {
+  display: flex;
+  
+  background-color: orange;
+  border-radius: 8px;
+  height: 250px;
+  width: 350px;
+
+  /* 讓 ::before 依附在卡片內 */
+  position: relative;
+  overflow: hidden;  /* 避免 ::before 溢出 */
+
+  /* 漸層底色（先簡單一層就好） */
+  background: linear-gradient(to right, #003282 , #013a97 60%, #0047b9 100%);
+}
+
+/* ------------------------------------------------------------------------------------------------------------------- */
+
+.SauDriverCard {
+  display: flex;
+  
+  background-color: orange;
+  border-radius: 8px;
+  height: 250px;
+  width: 350px;
+
+  /* 讓 ::before 依附在卡片內 */
+  position: relative;
+  overflow: hidden;  /* 避免 ::before 溢出 */
+
+  /* 漸層底色（先簡單一層就好） */
+  background: linear-gradient(to right, #006300 , #006300 60%, #009200 100%);
+}
+
+/* ------------------------------------------------------------------------------------------------------------------ */
+
+.HaasDriverCard {
+  display: flex;
+  
+  background-color: orange;
+  border-radius: 8px;
+  height: 250px;
+  width: 350px;
+
+  /* 讓 ::before 依附在卡片內 */
+  position: relative;
+  overflow: hidden;  /* 避免 ::before 溢出 */
+
+  /* 漸層底色（先簡單一層就好） */
+  background: linear-gradient(to right, #4d5052 , #5c6063 60%, #84898d 100%);
+}
+
+/* ------------------------------------------------------------------------------------------------------------------- */
+
+.AlpDriverCard {
+  display: flex;
+  
+  background-color: orange;
+  border-radius: 8px;
+  height: 250px;
+  width: 350px;
+
+  /* 讓 ::before 依附在卡片內 */
+  position: relative;
+  overflow: hidden;  /* 避免 ::before 溢出 */
+
+  /* 漸層底色（先簡單一層就好） */
+  background: linear-gradient(to right, #005081 , #00619e 60%, #009dff 100%);
+}
+
+/* ------------------------------------------------------------------------------------------------------------------- */
 
 .DriversNumber img{
-    width: 35px;
-    height: 24px;
+    width: 25px;
+    height: 20px;
 }
 
 .DriversTeams{
@@ -99,15 +260,15 @@
 }
 
 .DriversName{
-    font-size: 25px;
+    font-size: 20px;
 }
 
 .rightSide{
-    padding: 20px;
+    padding-top: 50px;
 }
 
 .rightSide img{
     width: 190px;
-  height: 460px;
-  clip-path: inset(0 0 50% 0); /* 從下方裁掉 50% */
+  height: 500px;
+  clip-path: inset(0 0 60% 0); /* 從下方裁掉 50% */
 }

@@ -1,0 +1,51 @@
+@font-face {
+    font-family: F1Regular;
+	src: url('../font/formula1-display-bold/Formula1-Regular_web_0.ttf') format('woff2');
+}
+
+@font-face {
+    font-family: F1Blod;
+	src: url('../font/formula1-display-bold/Formula1-Bold_web_0.ttf') format('woff2');
+}
+
+@font-face {
+    font-family: F1Wide;
+	src: url('../font/formula1-display-bold/Formula1-Wide_web_0.ttf') format('woff2');
+}
+
+.Text{
+    margin-top: 100px;
+    display: flex;
+    height: 100px;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0 130px;
+}
+
+.Line1{
+    font-family: F1Wide;
+    
+    font-size: 40px;
+}
+
+.Line2{
+    font-size: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, "Inter var", "Inter", Arial, sans-serif;
+    /* margin-top: 30px; */
+}
+
+.DriversRowTop{
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 130px;
+}
+
+
+
+.DriversRow{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 130px;
+}
