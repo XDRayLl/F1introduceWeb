@@ -1,0 +1,140 @@
+@font-face {
+    font-family: F1Regular;
+	src: url('../font/formula1-display-bold/Formula1-Regular_web_0.ttf') format('woff2');
+}
+
+@font-face {
+    font-family: F1Blod;
+	src: url('../font/formula1-display-bold/Formula1-Bold_web_0.ttf') format('woff2');
+}
+
+@font-face {
+    font-family: F1Wide;
+	src: url('../font/formula1-display-bold/Formula1-Wide_web_0.ttf') format('woff2');
+}
+/* 疊加點陣網格 */
+
+
+/* 確保裡面放的文字/圖片在最上層 */
+
+
+.TeamsCard{
+    width: 788px; 
+    height: 256px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.CardsTop{
+    /* padding: 20px; */
+    display: flex;
+    justify-content: space-between;
+    /* background-color: #a84300; */
+}
+
+.TeamsName{
+    font-family: F1Blod;
+    font-size: 1.5rem;
+}
+
+.TopLeft{
+    color: white;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.Drivers{
+    display: flex;
+    height: 20px;
+    width: 246.89px;
+    justify-content: space-between;
+}
+
+.DriverLeft{
+    display: flex;
+    width: 113.5px;
+    height: 20px;
+    justify-content: space-between;
+}
+
+.DriverRight{
+    display: flex;
+    width: 113.5px;
+    justify-content: space-between;
+}
+
+.imgBackground{
+    width: 20px;
+    height: 20px;
+    clip-path: circle(50% at 50% 50%);
+}
+
+.Driversimg{
+    width: 20px;
+    background-color: #f47600;
+    clip-path: inset(0 0 70% 0);
+}
+
+.DriverName{
+    display: flex;
+    align-items: center;
+    font-size: 11px;
+    font-family: F1regular;
+}
+
+.TopRightLogo{
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #863400;
+    clip-path: circle(50% at 50% 50%);
+}
+
+.TopRightLogo img{
+    width: 36px;
+    height: 36px;
+}
+
+.CardDownBackground{
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.maskimg{
+    display: flex;
+    align-items: flex-end;
+    margin-left: -145px;
+    height: 150px;
+    width: 914.72px;
+    opacity: 1;
+    background-color: #f47600;
+    mask-image: url('../assets/DRS-D-2x~eefRDGxF.b150f948.PNG');
+    mask-repeat: no-repeat;
+    mask-size: cover;
+    position: absolute;
+}
+
+.CardDownBackground img{
+    z-index: 1;
+    width: 454.5px;
+}
+
+/* -------------------------------------------------------------------------------------------------------------------- */
+.MclTeamsCard {
+  display: flex;
+  flex-direction: column;
+  background-color: orange;
+  border-radius: 8px;
+  /* height: 250px;*/
+
+  
+  /* 漸層底色 */
+  background: linear-gradient(to right, #863400, #d85e0d 60%, #ff7010c4 100%);
+}
