@@ -138,3 +138,220 @@
   /* 漸層底色 */
   background: linear-gradient(to right, #863400, #d85e0d 60%, #ff7010c4 100%);
 }
+/* ---------------------------------------------------------------------------------------------------------------- */
+.MerTeamsCard {
+  display: flex;
+  flex-direction: column;
+  background-color: #007560;
+  border-radius: 8px;
+  /* height: 250px;*/
+
+  
+  /* 漸層底色 */
+  background: linear-gradient(to right, #007560,#008b72ee 60%, #00dab9d3 100%);
+}
+
+.MerTeamsCard .maskimg{
+    background-color: #00d7b6;
+}
+
+.MerTeamsCard .Driversimg{
+    background-color: #00d7b6;
+}
+
+.MerTeamsCard .TopRightLogo{
+    background-color: #007560;
+}
+/* --------------------------------------------------------------------------------------------------------------- */
+.FerTeamsCard {
+  display: flex;
+  flex-direction: column;
+  background-color: #710006;
+  border-radius: 8px;
+  /* height: 250px;*/
+
+  
+  /* 漸層底色 */
+  background: linear-gradient(to right, #710006 0%,#a7070fe1 60%, #ee000cd0 100%);
+}
+
+.FerTeamsCard .maskimg{
+    background-color: #ed1131;
+
+}
+
+.FerTeamsCard .Driversimg{
+    background-color: #ed1131;
+}
+
+.FerTeamsCard .TopRightLogo{
+    background-color: #710006;
+}
+/* ---------------------------------------------------------------------------------------------------------------- */
+.RBRTeamsCard {
+  display: flex;
+  flex-direction: column;
+  background-color: #003282;
+  border-radius: 8px;
+  /* height: 250px;*/
+
+  
+  /* 漸層底色 */
+  background: linear-gradient(to right, #003282 0%,#0046b6 60%, #3f7bd6ec 100%);
+} 
+
+.RBRTeamsCard .maskimg{
+    background-color: #4781d7;
+}
+
+.RBRTeamsCard .Driversimg{
+    background-color: #4781d7;
+}
+
+.RBRTeamsCard .TopRightLogo{
+    background-color: #003282;
+}
+/* ----------------------------------------------------------------------------------------------------------------- */
+.WilliamsTeamsCard {
+  display: flex;
+  flex-direction: column;
+  background-color: #000681;
+  border-radius: 8px;
+  /* height: 250px;*/
+
+  
+  /* 漸層底色 */
+  background: linear-gradient(to right, #000681 0%,#0009b9 60%, #1869dbda 100%);
+} 
+
+.WilliamsTeamsCard .maskimg{
+    background-color: #1868db;
+}
+
+.WilliamsTeamsCard .Driversimg{
+    background-color: #1868db;
+}
+
+.WilliamsTeamsCard .TopRightLogo{
+    background-color: #000681;
+}
+/* ------------------------------------------------------------------------------------------------------------------- */
+.RBTeamsCard {
+  display: flex;
+  flex-direction: column;
+  background-color: #2345ab;
+  border-radius: 8px;
+  /* height: 250px;*/
+
+  
+  /* 漸層底色 */
+  background: linear-gradient(to right, #2345ab 0%,#3e78ff 60%, #5d8dfce3 100%);
+} 
+
+.RBTeamsCard .maskimg{
+    background-color: #6c98ff;
+}
+
+.RBTeamsCard .Driversimg{
+    background-color: #6c98ff;
+}
+
+.RBTeamsCard .TopRightLogo{
+    background-color: #2345ab;
+}
+/* ---------------------------------------------------------------------------------------------------------- */
+.AMTeamsCard {
+  display: flex;
+  flex-direction: column;
+  background-color: #00482c;
+  border-radius: 8px;
+  /* height: 250px;*/
+
+  
+  /* 漸層底色 */
+  background: linear-gradient(to right, #00482c 0%,#00774a 60%, #068655c5 100%);
+} 
+
+.AMTeamsCard .maskimg{
+    background-color: #229971;
+}
+
+.AMTeamsCard .Driversimg{
+    background-color: #229971;
+}
+
+.AMTeamsCard .TopRightLogo{
+    background-color: #00482c;
+}
+/* --------------------------------------------------------------------------------------------------------- */
+.KSTeamsCard {
+  display: flex;
+  flex-direction: column;
+  background-color: #006300;
+  border-radius: 8px;
+  /* height: 250px;*/
+
+  
+  /* 漸層底色 */
+  background: linear-gradient(to right, #006300 0%,#019901 60%, #0baf0bc2 100%);
+} 
+
+.KSTeamsCard .maskimg{
+    background-color: #01c00e;
+}
+
+.KSTeamsCard .Driversimg{
+    background-color: #01c00e;
+}
+
+.KSTeamsCard .TopRightLogo{
+    background-color: #006300;
+}
+/* --------------------------------------------------------------------------------------------------------------- */
+.HaasTeamsCard {
+  display: flex;
+  flex-direction: column;
+  background-color: #4d5052;
+  border-radius: 8px;
+  /* height: 250px;*/
+
+  
+  /* 漸層底色 */
+  background: linear-gradient(to right, #4d5052 0%,#777a7e 60%, #8e9194d0 100%);
+} 
+
+.HaasTeamsCard .maskimg{
+    background-color: #9c9fa2;
+}
+
+.HaasTeamsCard .Driversimg{
+    background-color: #9c9fa2;
+}
+
+.HaasTeamsCard .TopRightLogo{
+    background-color: #4d5052;
+}
+/* ------------------------------------------------------------------------------------------------------------------ */
+.AlpineTeamsCard {
+  display: flex;
+  flex-direction: column;
+  background-color: #005081;
+  border-radius: 8px;
+  /* height: 250px;*/
+
+  
+  /* 漸層底色 */
+  background: linear-gradient(to right, #005081 0%,#007bc7 60%, #0087dbc5 100%);
+} 
+
+.AlpineTeamsCard .maskimg{
+    background-color: #00a1e8;
+}
+
+.AlpineTeamsCard .Driversimg{
+    background-color: #00a1e8;
+}
+
+.AlpineTeamsCard .TopRightLogo{
+    background-color: #005081;
+}
