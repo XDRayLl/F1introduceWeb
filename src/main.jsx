@@ -10,6 +10,7 @@ import Schedule from "./pages/Schedule.jsx";
 import Drivers from './pages/Drivers.jsx';
 import Teams from './pages/Teams.jsx';
 
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
