@@ -3,13 +3,16 @@ import { useState, useEffect } from "react";
 function Sessions() {
   const [data, setData] = useState(null); // 存API回傳資料
   const [error, setError] = useState(null);
-
+  
   useEffect(() => {
     async function fetchData() {
       try {
         const response = await fetch("https://api.openf1.org/v1/sessions");
         const json = await response.json();
         setData(json); // 更新 state
+        console.log("xd: ",json);
+        
+
       } catch (err) {
         setError(err);
       }
@@ -27,12 +30,25 @@ function Sessions() {
   return (
     <div>
       <div>F1 Sessions 資料</div>
-      <pre>{JSON.stringify(data, null, 2)}</pre>
-      {/*顯示成json格式*/}
-      {/*pre:顯示文本原本的樣子*/}
-      {/* {data} */}
+      {/* <pre>{JSON.stringify(data, null, 2)}</pre>顯示成json格式 pre:顯示文本原本的樣子 */}
+      <div style={{whiteSpace:"pre-line"}}>
+        2025所有比賽: {judgeYears(data).join("\n")}
+      </div>
+      
+      {/* {data}  respone.text()*/}
     </div>
   );
 }
 
+function judgeYears(Data){
+  const Races = Data.filter(e => e.meeting_key >= 1253)
+  const ThisyearsRaces=Races.map(e=>e.date_start)
+  // console.log("Race " ,Races)
+  return(ThisyearsRaces)
+}
+
+
+function display(){
+  
+}
 export default Sessions;
