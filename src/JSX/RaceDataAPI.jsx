@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import moment from "moment";
+import moment from "moment";  
+// import Countdown from "react-countdown";
 
 function Sessions() {
   const [data, setData] = useState(null); // 存API回傳資料
@@ -67,6 +68,7 @@ function judgeYears(Data) {
   return ThisyearsRaces;
 }
 
+
 function ShowTime({races}) {
   const [currentTime, setCurrentTime] = useState(new Date());
 
@@ -88,10 +90,11 @@ function ShowTime({races}) {
 
   // if(date !=)
 
-  let Today = moment(date);
+  let Today = moment();
 
-  let upcomingRaceDate = races.map((race) => moment(race.date,"YYYY-MM-DD"))//moment(,顯示格式)(讓每個日期是變數race = monment(race.date)並形成一個陣列)
+  let upcomingRaceDate = races.map((race) => moment(race.date+ "T"+ race.time))//moment(,顯示格式)(讓每個日期是變數race = monment(race.date)並形成一個陣列)
   let upcomingRace = upcomingRaceDate.find((raceDate) => raceDate.isAfter(Today));
+
 
   let upcomingRaceName
    for(var i=0;i<upcomingRaceDate.length;i++){
@@ -101,7 +104,11 @@ function ShowTime({races}) {
     }
    }
 
-  let Diffdays = upcomingRace.diff(Today, "days");
+  let Diff = moment.duration(upcomingRace.diff(Today));
+  let days = Math.floor(Diff.asDays());
+  let hours = Diff.hours();
+  let minutes = Diff.minutes();
+  let seconds = Diff.seconds();
   // console.log("相差天數", Diffdays);
 
   return (
@@ -114,15 +121,16 @@ function ShowTime({races}) {
         {currentTime.getHours()}:{currentTime.getMinutes()}:
         {currentTime.getSeconds()}
       </p>
-      <p>下場比賽{upcomingRaceName} 是 {Diffdays} 天後</p>
+      <p>下場比賽 {upcomingRaceName} 倒數：
+        {days}天 {hours}小時 {minutes}分 {seconds}秒</p>
+      
     </div>
   );
 }
 
-// function NextRaceTime(){
-//   let Today = moment()
-//   console.log(Today)
-// }
+function Counydown(){
+  
+}
 
 function display() {}
 export default Sessions;
