@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import moment from "moment";  
+import moment from "moment";
+import "../CSS/RaceDataAPICss.css"
 // import Countdown from "react-countdown";
 
 function Sessions() {
@@ -31,15 +32,15 @@ function Sessions() {
 
   return (
     <div>
-      <div>F1 Sessions 資料</div>
+      {/* <div>F1 Sessions 資料</div> */}
       {/* <pre>{JSON.stringify(data, null, 2)}</pre>顯示成json格式 pre:顯示文本原本的樣子 */}
       <div style={{ whiteSpace: "pre-line" }}>
-        2025所有比賽:
-        <br />
-        {judgeYears(data).join("\n")}
+        {/* 2025所有比賽: */}
+        {/* <br /> */}
+        {/* {judgeYears(data).join("\n")} */}
       </div>
       <div>
-        現在時間
+        {/* 現在時間 */}
         <ShowTime races={data.MRData.RaceTable.Races} />
         {/* {setInterval(ShowTime,1000)} */}
       </div>
@@ -68,8 +69,7 @@ function judgeYears(Data) {
   return ThisyearsRaces;
 }
 
-
-function ShowTime({races}) {
+function ShowTime({ races }) {
   const [currentTime, setCurrentTime] = useState(new Date());
 
   useEffect(() => {
@@ -81,56 +81,63 @@ function ShowTime({races}) {
     };
   }, []);
 
-  var date =
-    currentTime.getFullYear() +
-    "-" +
-    (currentTime.getMonth() + 1) +
-    "-" +
-    currentTime.getDate();
-
-  // if(date !=)
-
   let Today = moment();
+  // console.log(races)
 
-  let upcomingRaceDate = races.map((race) => moment(race.date+ "T"+ race.time))//moment(,顯示格式)(讓每個日期是變數race = monment(race.date)並形成一個陣列)
-  let upcomingRace = upcomingRaceDate.find((raceDate) => raceDate.isAfter(Today));
+  let upcomingRaceDate = races.map((race) =>
+    moment(race.date + "T" + race.time)
+  ); //moment(,顯示格式)(讓每個日期是變數race = monment(race.date)並形成一個陣列)
+  let upcomingRace = upcomingRaceDate.find((raceDate) =>
+    raceDate.isAfter(Today)
+  );
 
+  // let upcomingDate = races.map((race) => moment(race.date))
 
-  let upcomingRaceName
-   for(var i=0;i<upcomingRaceDate.length;i++){
-    if(upcomingRace == upcomingRaceDate[i]){
-      let AllRaceName = races.map((e)=>e.raceName)
-      upcomingRaceName = AllRaceName[i]
+  let upcomingRaceName;
+  let RaceDate;
+  let RaceRound
+  for (var i = 0; i < upcomingRaceDate.length; i++) {
+    if (upcomingRace == upcomingRaceDate[i]) {
+      let AllRaceName = races.map((e) => e.raceName);
+      let AllRaceDate = races.map((e) => e.date);
+      let AllRaceRound = races.map((e)=>e.round)
+      upcomingRaceName = AllRaceName[i];
+      RaceDate = AllRaceDate[i];
+      RaceRound = AllRaceRound[i]
     }
-   }
+  }
 
-  let Diff = moment.duration(upcomingRace.diff(Today));
+  let Diff = moment.duration(upcomingRace.diff(Today)); //單位為毫秒
   let days = Math.floor(Diff.asDays());
   let hours = Diff.hours();
   let minutes = Diff.minutes();
   let seconds = Diff.seconds();
-  // console.log("相差天數", Diffdays);
+  // let RaceDate = moment(upcomingRace,"MMM Do YY")
+  // console.log("RaceDate", RaceDate);
 
   return (
     <div>
-      <p>
+      {/* <p>
         {currentTime.getFullYear()}/{currentTime.getMonth() + 1}/
         {currentTime.getDate()}
       </p>
       <p>
         {currentTime.getHours()}:{currentTime.getMinutes()}:
         {currentTime.getSeconds()}
-      </p>
-      <p>下場比賽 {upcomingRaceName} 倒數：
-        {days}天 {hours}小時 {minutes}分 {seconds}秒</p>
-      
+      </p> */}
+      <div className="PreviewArea">
+        <p>{RaceRound}</p>
+        <p>
+          {upcomingRaceName} <br/>
+          {days}D {hours}H {minutes}M {seconds}S
+        </p>
+        <p>{moment(RaceDate).format("MMM Do")}</p>
+      </div>
     </div>
   );
 }
 
-function Counydown(){
-  
-}
+function Counydown() {}
 
 function display() {}
 export default Sessions;
