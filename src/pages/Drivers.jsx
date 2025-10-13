@@ -2,11 +2,13 @@ import Nav from "../JSX/Nav";
 import DriversCards from "../JSX/DriversCards";
 import Footer from "../JSX/Footer"
 import "../CSS/DriversCss.css"
+import Sessions from '../JSX/RaceDataAPI.jsx';
 
 function Drivers() {
   return (
     <div>
       <Nav />
+      <Sessions/>
       <div className="Text">
         <div className="Line1">
         F1 Drivers 2025

@@ -88,7 +88,7 @@ function GPstartOrnotDown({
       <>
         <div className="CardDown">
           <div className="Date">{GPDate}</div>
-          <img className="trackimg" src={imgSrc} alt="" />
+          <img className="trackimg" src={imgSrc} />
         </div>
       </>
     );

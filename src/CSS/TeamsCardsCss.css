@@ -12,11 +12,6 @@
     font-family: F1Wide;
 	src: url('../font/formula1-display-bold/Formula1-Wide_web_0.ttf') format('woff2');
 }
-/* 疊加點陣網格 */
-
-
-/* 確保裡面放的文字/圖片在最上層 */
-
 
 .TeamsCard{
     width: 788px; 

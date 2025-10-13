@@ -1,4 +1,89 @@
-.PreviewArea{
-    background-color: white;
-    padding:10px 100px;
+@font-face {
+  font-family: F1Regular;
+  src: url("../font/formula1-display-bold/Formula1-Regular_web_0.ttf")
+    format("woff2");
+}
+
+@font-face {
+  font-family: F1Blod;
+  src: url("../font/formula1-display-bold/Formula1-Bold_web_0.ttf")
+    format("woff2");
+}
+
+@font-face {
+  font-family: F1Wide;
+  src: url("../font/formula1-display-bold/Formula1-Wide_web_0.ttf")
+    format("woff2");
+}
+@font-face {
+  font-family: KHInterferenceTRIAL-Regular;
+  src: url("../font/KH-Interference-TRIAL/KH\ Interference\ TRIAL/KHInterferenceTRIAL-Regular")
+    format("woff2");
+}
+
+.PreviewArea {
+  background-color: white;
+  padding: 10px 100px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.PreviewLeft {
+  font-family: F1Regular;
+}
+
+.PreviewLeft .Round {
+  font-size: 12px;
+}
+
+.PreviewLeft .RaceName {
+  font-size: 20px;
+}
+
+.PreviewLeft .Countdown {
+  font-size: 15px;
+}
+
+.PreviewRight {
+  font-family: F1Regular;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.TimeArea {
+  width: 173.48px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.Mytime {
+  display: flex;
+}
+
+.Countdown {
+  display: flex;
+}
+
+.unit {
+  display: flex;
+  font-size: 10px;
+  align-items: flex-end;
+}
+
+.flag {
+  width: 25px;
+  height: 25px;
+  display: inline-block;
+  padding: 2.5px; /* 白邊寬度 */
+  background: white; /* 白邊顏色 */
+  border-radius: 50%;
+}
+
+.flag img {
+  width: 20px;
+  height: 20px;
+
+  clip-path: circle(50% at 50% 50%);
 }

@@ -1,6 +1,7 @@
 import Nav from "../JSX/Nav.jsx";
 import ScheduleCards from "../JSX/ScheduleCards.jsx";
 import Footer from "../JSX/Footer.jsx";
+import Sessions from '../JSX/RaceDataAPI.jsx';
 // import "../CSS/ScheduleCss.css"
 import "../CSS/App.css";
 import "../CSS/ScheduleCss.css";
@@ -9,6 +10,7 @@ function Schedule() {
   return (
     <>
       <Nav />
+      <Sessions/>
       <div className="CardAreas">
         <div className="CardArea">
           <ScheduleCards

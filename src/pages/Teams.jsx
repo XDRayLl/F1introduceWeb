@@ -1,11 +1,13 @@
 import Nav from "../JSX/Nav";
 import TeamsCards from "../JSX/TeamsCards";
 import Footer from "../JSX/Footer";
+import Sessions from '../JSX/RaceDataAPI.jsx';
 
 function Teams() {
   return (
     <div>
       <Nav />
+      <Sessions/>
       <div className="AllCards">
         <div className="CardRow">
           <TeamsCards
