@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import "../CSS/ScheduleCardsCss.css";
 
 function ScheduleCard({
@@ -10,32 +9,28 @@ function ScheduleCard({
   Rank2F,
   Rank3F,
   imgSrcF,
-  GPimgF
+  GPimgF,
+  isStarted,
 }) {
-  const [isStartDown, setIsStartDown] = useState(false);
-  const [isStartTop, setIsStartTop] = useState(false);
-
-  function handleToggle() {
-    setIsStartTop((prev) => !prev);
-    setIsStartDown((prev) => !prev);
-  }
-
   return (
     <>
       <div className="Cards">
-        <button onClick={handleToggle}>切換</button>
+        {/* <button onClick={handleToggle}>切換</button> */}
         <GPstartOrnotTop
-          isStartedTop={isStartTop}
+          isStartedTop={isStarted}
           GPRound={GPRoundF}
           GPDate={GPDateF}
           GPimg={GPimgF}
         />
         <div className="CardMid">
-          <div className="GPName"><img className="GPimg" src={GPimgF} alt="" />{GPName}</div>
+          <div className="GPName">
+            <img className="GPimg" src={GPimgF} alt="" />
+            {GPName}
+          </div>
           <div className="GPContent">{GPContent}</div>
         </div>
         <GPstartOrnotDown
-          isStartedDown={isStartDown}
+          isStartedDown={isStarted}
           Rank1={Rank1F}
           Rank2={Rank2F}
           Rank3={Rank3F}
@@ -96,12 +91,11 @@ function GPstartOrnotDown({
   // <h1>{isLoggedIn ? "歡迎回來！" : "請先登入"}</h1>;
 }
 
-function GPstartOrnotTop({ isStartedTop, GPRound, GPDate,GPimg }) {
+function GPstartOrnotTop({ isStartedTop, GPRound, GPDate, GPimg }) {
   if (isStartedTop === true) {
     return (
       <>
         <div className="CardTop">
-          
           <div className="Round">{GPRound}</div>
           <div className="Date"> {GPDate}</div>
         </div>
@@ -111,7 +105,6 @@ function GPstartOrnotTop({ isStartedTop, GPRound, GPDate,GPimg }) {
     return (
       <>
         <div className="CardTop">
-          
           <div className="Round">{GPRound}</div>
         </div>
       </>

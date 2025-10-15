@@ -42,14 +42,10 @@ function Compeleted() {
     while (isRaceDown.length < 25) {
       isRaceDown.push(false);
     }
-    console.log("This", isRaceDown);
-
-    // console.log("This",ThisYearRaces)
-    // for(let i=0;i<isRaceDown.length;i++){
-    //   if(isRaceDown[i]===true){
-    //     RaceDate = ThisYearRaces.date_end
-    //   }
-    // }
+    
+    console.log("This",ThisYearRaces)
+   
+    console.log("isRaceDown", isRaceDown);
     return <FindRank sessionKeys={RaceSessionKey} />;
   }
 }
