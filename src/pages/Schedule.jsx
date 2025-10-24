@@ -15,7 +15,6 @@ function Compeleted() {
   const [podiumName, setPodiumName] = useState([]);
   const [error, setError] = useState(null);
 
-  // 1️⃣ 取得賽程
   useEffect(() => {
     async function fetchData() {
       try {
@@ -23,12 +22,13 @@ function Compeleted() {
         const json = cached
           ? JSON.parse(cached)
           : await (await fetch("https://api.openf1.org/v1/sessions")).json();
-        if (!cached) sessionStorage.setItem("f1sessions", JSON.stringify(json));
-
-        const Today = moment();
-        let ThisYearRaces = json.filter(
-          (race) => moment(race.date_start).year() === 2025 && race.session_name === "Race"
-        );
+          if (!cached) sessionStorage.setItem("f1sessions", JSON.stringify(json));
+          
+          const Today = moment();
+          let ThisYearRaces = json.filter(
+            (race) => moment(race.date_start).year() === 2025 && race.session_name === "Race"
+          );
+          console.log("ThisYearrace",ThisYearRaces)
 
         const result = ThisYearRaces.map((race) => moment(race.date_end).isBefore(Today));
         const SessionKey = ThisYearRaces.map((race) => race.session_key);
@@ -44,34 +44,39 @@ function Compeleted() {
     fetchData();
   }, []);
 
-  // 2️⃣ 取得排名
   useEffect(() => {
     if (sessionkey.length === 0) return;
 
     async function fetchRank() {
-      try {
-        const response = await fetch("https://api.openf1.org/v1/session_result");
-        const json = await response.json();
+  try {
+    const response = await fetch("https://api.openf1.org/v1/session_result");
+    const json = await response.json();
 
-        let FindRace = json.filter((num) => sessionkey.includes(num.session_key));
-        let Topthree = FindRace.filter((ranknum) => ranknum.position <= 3 && ranknum.position != null);
-        let podium = Topthree.map((Drivernum) => Drivernum.driver_number);
-        let names = podium.map((num) => getDriverName(num));
-
-        while (names.length < 72) names.push("Unknown");
-
-        setPodiumName(names);
-      } catch (err) {
-        setError(err);
-      }
+    let Topthree = [];
+    for (let key of sessionkey) {
+      let thisRace = json.filter((num) => num.session_key === key);
+      let top3 = thisRace
+        .filter((r) => r.position <= 3 && r.position != null)
+        .sort((a, b) => a.position - b.position);
+      Topthree.push(...top3);//陣列元素攤平成一維陣列
     }
+
+    let podium = Topthree.map((r) => r.driver_number);
+    let names = podium.map((num) => getDriverName(num));
+
+    while (names.length < 72) names.push("Unknown");
+
+    setPodiumName(names);
+  } catch (err) {
+    setError(err);
+  }
+}
     fetchRank();
   }, [sessionkey]);
 
   if (error) return <div>Error: {error.message}</div>;
-  if (isRaceDown.length === 0 || podiumName.length === 0) return <div>Loading...</div>;
+  if (isRaceDown.length === 0 || podiumName.length === 0) return <div></div>;
 
-  // 3️⃣ 渲染 Schedule 一次
   return <Schedule isRaceDownList={isRaceDown} APIRank={podiumName} />;
 }
 
@@ -143,8 +148,6 @@ function getDriverName(number) {
 }
 
 function Schedule({ isRaceDownList = [], APIRank = [] }) {
-  if(APIRank.length != 0)
-  console.log(">", APIRank[0]);
 
   
     return (
