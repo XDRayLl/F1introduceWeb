@@ -11,10 +11,11 @@ function ScheduleCard({
   imgSrcF,
   GPimgF,
   isStarted,
+  clicked
 }) {
   return (
     <>
-      <div className="Cards">
+      <div className="Cards" onClick={clicked}>
         {/* <button onClick={handleToggle}>切換</button> */}
         <GPstartOrnotTop
           isStartedTop={isStarted}

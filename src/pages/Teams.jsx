@@ -8,6 +8,7 @@ function Teams() {
     <div>
       <Nav />
       <Sessions/>
+      
       <div className="AllCards">
         <div className="CardRow">
           <TeamsCards
