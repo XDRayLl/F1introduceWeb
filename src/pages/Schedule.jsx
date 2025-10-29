@@ -6,7 +6,7 @@ import Weather from "../JSX/Weather.jsx";
 
 import "../CSS/App.css";
 import "../CSS/ScheduleCss.css";
-import "../CSS/WeatherCss.css"
+import "../CSS/WeatherCss.css";
 import { useState, useEffect } from "react";
 import moment from "moment-timezone";
 import { ImOpera } from "react-icons/im";
@@ -86,7 +86,7 @@ function Compeleted() {
   if (error) return <div>Error: {error.message}</div>;
   if (isRaceDown.length === 0 || podiumName.length === 0) return <div></div>;
 
-  return <Schedule isRaceDownList={isRaceDown} APIRank={podiumName} />;
+  return <Schedule isRaceDownList={isRaceDown} APIRank={podiumName} SessionKeys={sessionkey}/>;
 }
 
 function getDriverName(number) {
@@ -155,9 +155,11 @@ function getDriverName(number) {
   }
 }
 
-function Schedule({ isRaceDownList = [], APIRank = [] }) {
+function Schedule({ isRaceDownList = [], APIRank = [], SessionKeys=[]}) {
   const [selectedCard, setSelectedCard] = useState(null);
 
+  console.log("key",SessionKeys[0])
+  
   return (
     <>
       <Nav />
@@ -168,7 +170,8 @@ function Schedule({ isRaceDownList = [], APIRank = [] }) {
             <div className="modal">
               <div className="modal-content">
                 <h2>{selectedCard.GPName}</h2>
-                <p>{selectedCard.details}</p>
+                <p>{selectedCard.GPDate}</p>
+                <Weather RaceSessionKey={SessionKeys[selectedCard.RoundArray]}/>
                 <button onClick={() => setSelectedCard(null)}>關閉</button>
               </div>
             </div>
@@ -206,9 +209,7 @@ function Schedule({ isRaceDownList = [], APIRank = [] }) {
             clicked={() => {
               if (isRaceDownList[0])
                 setSelectedCard({
-                  GPName: "Australia",
-                  GPDate: "14 - 16 MAR",
-                  Round: "Round1",
+                  RoundArray:0
                 });
             }}
           />
@@ -227,6 +228,12 @@ function Schedule({ isRaceDownList = [], APIRank = [] }) {
               "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPoAAACnCAMAAAAPIrEmAAAAhFBMVEXuHCX//wD0Z23vKyP+8wL0cBf6wgr++AH/+wH80gf//QD1dxbyURzxPx/uIST4pA/xSR796wP4oBD1fxX5rA3zXBv4nRD7ywj95gTwOSDyVhzzYRr94gX83Ab6uwv3jhL2hhT0aBn5tAz3lBH80Qj5qg72ihP0Zhn1cxf6vwr+7wPxRB6u+eyuAAADoElEQVR4nO3baXeiMBQGYO5EUFQiiIq4L92m/v//N2wuHVETW5IG3udLPS303HvIdkm0LAAAAAAoxd91R6DNaqM7AuU+/OzHkGzNgah36Lg2tzZEY92RqDchmg66RL7uQNRjAWVi3YFoYOepuz2uO5IfJJYLa+e5U7Cuz5Pfi+TOIzqajmqTezATuGiXp/053NYmb8ua0eDxRckA33KSkW5XfTwKDSl4eM18FPrZSDdUEJA6U6K+4KURvVUaimL9pAdPBK89dHqVxqLYJB2zhS+eVxmKaot04BZdnjKv0ljU8rM5a687DB32WeqLJ+4MTZ/gl/lS5SB/Z7hk+QdDO8GhWJyu5W+dk5vm3jf1xc26SH0pf6uXlHGs71BgaCm3PNYk8q2Wd5LFbXKnoVO9dyrHnlimTfMR0tCH/nZK3ZW99d3NbzTjPSW74p5Sp8PVH+89zvnpTseIp263SMKI3fxH/M3tnK5bGZG7595J9avWg4bMve1rcenOiNz5uiuW+YvAUi0dI+2PiROMqg/8J4wDkcwnQq/rOrTKPrDbXeNXYX8fJh4IbrEsuqZtSISd+5k7og/RMaSlX/CXdxJvb4T/z8TA2o2Nbma+lGjDBmZu3Z7i70zmtRFHJYk/msxrgu+uR3YzW7C81VXqnQa09tRp5/RCM9q7tS3p6yvdQalx3dWTOb0RLZ6Xzm5b3WGp8F6WuewespnnB8/ruVbv5fxZrvR2RA4l/Dbn9p5U5hdVvNR2Imu/VhVfhebHXPPKfHas4qVqsblsK/kVipdLp8qcrZ5o8UMTx0X+mc/jF5NZUcWLHgRlLPYWRNHW7oUbk7r8OJvFwy+/y6t4gSNF1v+F3xMbdvoMqKQyZ+lvBXfQ4nMF0DJrigvKK/Nt8jBFG2+vePBLs/aYZ9QqH5+SKl74eFixP23Ym8nhzdfsfC18pKiYHw07i3LvdPNYtAEnU1sQSZy+qpEFRXHa402a2X6GR4O07cSRiYvZ7+kdB8pafTdASOMSbrBanRSVwh3DVjDfx4uePXnmWKXhXgfp1wXsJn7PLW6RG47bRI14Xf1VryhRmzinOcW7vOZ1dis+7tG5YdMavX1+LbNr1ljn5w+96+5nDevubFpsWOgORDnutJ2NHxI5uiNR7jDOWnnUlB34a167Xl/nlbER26GoI96Q0zYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAuv1prH/vqyOt7ticiQAAAABJRU5ErkJggg=="
             }
             isStarted={isRaceDownList[1]}
+            clicked={() => {
+              if (isRaceDownList[1])
+                setSelectedCard({
+                  RoundArray:1
+                });
+            }}
           />
         </div>
         <div className="CardArea">
@@ -245,6 +252,12 @@ function Schedule({ isRaceDownList = [], APIRank = [] }) {
               "https://upload.wikimedia.org/wikipedia/en/thumb/9/9e/Flag_of_Japan.svg/1200px-Flag_of_Japan.svg.png"
             }
             isStarted={isRaceDownList[2]}
+            clicked={() => {
+              if (isRaceDownList[2])
+                setSelectedCard({
+                  RoundArray:2
+                });
+            }}
           />
           <ScheduleCards
             GPName={"Bahrain"}
@@ -261,6 +274,12 @@ function Schedule({ isRaceDownList = [], APIRank = [] }) {
               "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASIAAACuCAMAAAClZfCTAAAAUVBMVEXaKRz////ZIhPaJxnYDQDXAAD65OPZGgPxvLngV1DZGQDyvrzpkY3ojIj54eDgVEz65+bhXVbZHQv87+7+9/fwtLHrl5Pmf3nbMSXzxcLiZ2FU18ItAAAEF0lEQVR4nO2diW7jMAxEwzZJc2+21x7//6FrCUGdY2OpAIfBDPj+IA8MJY8peWZOvH/8WLw8zxTxUjRw2D/Nnx79ewA4KhpYKZaSryKzpV4peSsaWK21SgmgqHSljVApQRSZVFdCKSql9KxRSjhFptKVoIrKAsfflcCKTKCU8Irot90Riox7gQtSxLztDlNktF0pUlEppTlfKcUqslJKr4/+zd8kXJHZJ5mjaD/H3Wzz6N/8TWIFbRkbdqCf5Y5z2Q8TtP252NAVUCXGz5G0gCoRgoYC4utAI3A/y92Mt4AqYEHb9Zy0A40g/Rx3/HnaDKmIdwm7AuTnuBPJ9mcgRcwB2i3+fshj2Fu8Ba3Wc6ECqrj6UXgldIujINLctYmXn7dfigVU8VJE/IajhZsiE9osXuKpiDc1m8RXkZFmr5O4K6oJvlQpARSZWFfCKJIJQgooRVZKSeNZBKhIZa8EVWQSuQhaUSmlV+5Swisy9gfcEEXc8/xBioy4K8Upop3nj1RknF0pWFEJA36TOQpXZG/7HOSbZHjAJTMUq4hzzChQEGvYFuVnyfuSP0YQ9ZhRgB/KUw1nwAUxbhYvwfqRyNSQgmgfXC+B+TmwJ2lfgATxd6ARhJ/l/kWkgCr+gpQKqOLshzQ1m8RVkMgSdoWfH+YEfxIvQW/rxVyvgCpeinizjiZ+irRONZzhqcjEBotOOCsq2Zla13ZXZHWwSKmUEIoUTnuegVFkSgscTBHrK6FbgIpMZIHDKipdiT5ZQyuy2pWoSylAEfsCF6LIqC/FiFJUFjjSuDZOkbFuu0MVcR5YC1Y08OcvmaNU1CTYT/7RGmS7niYX/Qa5dZwmH0Aa5GPsNBmGNMhIbZoMZhtkvD8N9xJ2BUIQ5yb6Lu5+8oV1A4kl7ApPPzk800BnCbvCS1AO8nWQ46A95FBxBzma3kMecOggj8n0oFRKIEV5ZK8PkQUOqSiPD/fB35XgivIqgz7yQowO8lqVHljTkkBFrK+NQhVZXhTWRV431yIvLWzAuJGM9EOat8UJon2oDfLDnP2HCGLsQCN4P3mxfAPaDjQC9SORqOWnUtqg/OQHdxpIjRkB/OTHvxqwBmf38fXDeNysiacgqQ404uZHYw/0P7wM5ad1e+B+WL2Po6L8zHcf+bH4Dg5qfdtfkUkkIGdAFGmddQApMqGNJE6RTCCCVGTkg0UnwIoUzoDCFRn1ZRiFCEWsg0UnYhQZ8wIXpog3bwtUZKSpbayimv1vHv2bv0m0ooHPHOSbZrUmMxSsiPKsQ6Qg0uQ2zA/vG5IgQcwhW4Qf8qgWL4i0A42A/Si8NoIKoi+gCs4P6az+LShBzEvYFRA/zLP6twAEaXSgEW8/vJvou/gKEupAI45+yDfRd/Hy8/6hWECFfzwhWL11DxXdAAAAAElFTkSuQmCC"
             }
             isStarted={isRaceDownList[3]}
+            clicked={() => {
+              if (isRaceDownList[3])
+                setSelectedCard({
+                  RoundArray:3
+                });
+            }}
           />
           <ScheduleCards
             GPName={"Saudi Arabia"}
@@ -277,6 +296,12 @@ function Schedule({ isRaceDownList = [], APIRank = [] }) {
               "https://f1flow.ru/upload/iblock/982/16l1f6bi2xxsnrfvkgkn7belmsn9rg4b.png"
             }
             isStarted={isRaceDownList[4]}
+            clicked={() => {
+              if (isRaceDownList[4])
+                setSelectedCard({
+                  RoundArray:4
+                });
+            }}
           />
         </div>
         <div className="CardArea">
@@ -295,6 +320,12 @@ function Schedule({ isRaceDownList = [], APIRank = [] }) {
               "https://f1flow.ru/upload/iblock/ae6/s4ovtb44nlhzmy3fyjpeeulysnjzxmgr.png"
             }
             isStarted={isRaceDownList[5]}
+            clicked={() => {
+              if (isRaceDownList[5])
+                setSelectedCard({
+                  RoundArray:5
+                });
+            }}
           />
           <ScheduleCards
             GPName={"Emilia-Romagna"}
@@ -313,6 +344,12 @@ function Schedule({ isRaceDownList = [], APIRank = [] }) {
               "https://f1flow.ru/upload/iblock/810/2apne5toatqkeygjg4pkq25njn30kn3m.png"
             }
             isStarted={isRaceDownList[6]}
+            clicked={() => {
+              if (isRaceDownList[6])
+                setSelectedCard({
+                  RoundArray:6
+                });
+            }}
           />
           <ScheduleCards
             GPName={"Monaco"}
@@ -329,6 +366,12 @@ function Schedule({ isRaceDownList = [], APIRank = [] }) {
               "https://f1flow.ru/upload/iblock/099/vvfqax3s728m7mv8zxxzzgko8somg2z6.png"
             }
             isStarted={isRaceDownList[7]}
+            clicked={() => {
+              if (isRaceDownList[7])
+                setSelectedCard({
+                  RoundArray:7
+                });
+            }}
           />
         </div>
         <div className="CardArea">
@@ -347,6 +390,12 @@ function Schedule({ isRaceDownList = [], APIRank = [] }) {
               "https://f1flow.ru/upload/iblock/928/sg30k1bjp6pyqm7os0iymg6bwrea9a1n.png"
             }
             isStarted={isRaceDownList[8]}
+            clicked={() => {
+              if (isRaceDownList[8])
+                setSelectedCard({
+                  RoundArray:8
+                });
+            }}
           />
           <ScheduleCards
             GPName={"Canada"}
@@ -363,6 +412,12 @@ function Schedule({ isRaceDownList = [], APIRank = [] }) {
               "https://f1flow.ru/upload/iblock/d4d/6sey5n8hmgu57dl5ly298mlr6lajrjt0.png"
             }
             isStarted={isRaceDownList[9]}
+            clicked={() => {
+              if (isRaceDownList[9])
+                setSelectedCard({
+                  RoundArray:9
+                });
+            }}
           />
           <ScheduleCards
             GPName={"Austria"}
@@ -379,6 +434,12 @@ function Schedule({ isRaceDownList = [], APIRank = [] }) {
               "https://f1flow.ru/upload/iblock/8f5/i10kkskxg3q0elxtx96log649cxzu9kp.png"
             }
             isStarted={isRaceDownList[10]}
+            clicked={() => {
+              if (isRaceDownList[10])
+                setSelectedCard({
+                  RoundArray:10
+                });
+            }}
           />
         </div>
         <div className="CardArea">
@@ -397,6 +458,12 @@ function Schedule({ isRaceDownList = [], APIRank = [] }) {
               "https://f1flow.ru/upload/iblock/899/wyw99i0hl2hov7q6q1zf6knwjtqco7jb.png"
             }
             isStarted={isRaceDownList[11]}
+            clicked={() => {
+              if (isRaceDownList[11])
+                setSelectedCard({
+                  RoundArray:11
+                });
+            }}
           />
           <ScheduleCards
             GPName={"Belgium"}
@@ -413,6 +480,12 @@ function Schedule({ isRaceDownList = [], APIRank = [] }) {
               "https://f1flow.ru/upload/iblock/00a/ub9dxyn3iu8djm9w951qknoclomc23pn.png"
             }
             isStarted={isRaceDownList[12]}
+            clicked={() => {
+              if (isRaceDownList[12])
+                setSelectedCard({
+                  RoundArray:12
+                });
+            }}
           />
           <ScheduleCards
             GPName={"Hungary"}
@@ -429,6 +502,12 @@ function Schedule({ isRaceDownList = [], APIRank = [] }) {
               "https://f1flow.ru/upload/iblock/c34/08glgh3lg40vawctmo8y5jgwn9i50kc6.png"
             }
             isStarted={isRaceDownList[13]}
+            clicked={() => {
+              if (isRaceDownList[13])
+                setSelectedCard({
+                  RoundArray:13
+                });
+            }}
           />
         </div>
         <div className="CardArea">
@@ -447,6 +526,12 @@ function Schedule({ isRaceDownList = [], APIRank = [] }) {
               "https://f1flow.ru/upload/iblock/d14/8n6w9f3mhafj3ner3v7nfcluog86ilnz.png"
             }
             isStarted={isRaceDownList[14]}
+            clicked={() => {
+              if (isRaceDownList[14])
+                setSelectedCard({
+                  RoundArray:14
+                });
+            }}
           />
           <ScheduleCards
             GPName={"Italy"}
@@ -463,6 +548,12 @@ function Schedule({ isRaceDownList = [], APIRank = [] }) {
               "https://f1flow.ru/upload/iblock/397/scsb6ealthpbxc1003palym1r8wzvooa.png"
             }
             isStarted={isRaceDownList[15]}
+            clicked={() => {
+              if (isRaceDownList[15])
+                setSelectedCard({
+                  RoundArray:15
+                });
+            }}
           />
           <ScheduleCards
             GPName={"Azerbaijan"}
@@ -479,6 +570,12 @@ function Schedule({ isRaceDownList = [], APIRank = [] }) {
               "https://f1flow.ru/upload/resize_cache/iblock/90d/5000_240_1/u0jd99j5wx7i7g6hph9k1h06l3xunyjn.png"
             }
             isStarted={isRaceDownList[16]}
+            clicked={() => {
+              if (isRaceDownList[16])
+                setSelectedCard({
+                  RoundArray:16
+                });
+            }}
           />
         </div>
         <div className="CardArea">
@@ -497,6 +594,12 @@ function Schedule({ isRaceDownList = [], APIRank = [] }) {
               "https://f1flow.ru/upload/resize_cache/iblock/5e9/5000_240_1/98tro63ez7vv37wx9ii8ea70qh1miodl.png"
             }
             isStarted={isRaceDownList[17]}
+            clicked={() => {
+              if (isRaceDownList[17])
+                setSelectedCard({
+                  RoundArray:17
+                });
+            }}
           />
           <ScheduleCards
             GPName={"United States"}
@@ -513,6 +616,12 @@ function Schedule({ isRaceDownList = [], APIRank = [] }) {
               "https://f1flow.ru/upload/resize_cache/iblock/dce/5000_240_1/2k42moxi468lxhr292gztlrsx0k3htqv.png"
             }
             isStarted={isRaceDownList[18]}
+            clicked={() => {
+              if (isRaceDownList[18])
+                setSelectedCard({
+                  RoundArray:18
+                });
+            }}
           />
           <ScheduleCards
             GPName={"Mexico"}
@@ -529,6 +638,12 @@ function Schedule({ isRaceDownList = [], APIRank = [] }) {
               "https://f1flow.ru/upload/resize_cache/iblock/a87/5000_240_1/20gs1xj1vq7fiq08xzlpq8zva7ojpgee.png"
             }
             isStarted={isRaceDownList[19]}
+            clicked={() => {
+              if (isRaceDownList[19])
+                setSelectedCard({
+                  RoundArray:19
+                });
+            }}
           />
         </div>
         <div className="CardArea">
@@ -547,6 +662,12 @@ function Schedule({ isRaceDownList = [], APIRank = [] }) {
               "https://f1flow.ru/upload/resize_cache/iblock/ad9/5000_240_1/sn0eb4l4std68q1je7d9hdx9vw7faecd.png"
             }
             isStarted={isRaceDownList[20]}
+            clicked={() => {
+              if (isRaceDownList[20])
+                setSelectedCard({
+                  RoundArray:20
+                });
+            }}
           />
           <ScheduleCards
             GPName={"Las Vegas"}
@@ -563,6 +684,12 @@ function Schedule({ isRaceDownList = [], APIRank = [] }) {
               "https://f1flow.ru/upload/resize_cache/iblock/d10/5000_240_1/3ea74y9vltpseobcj9fwt2b9lm69hnbu.png"
             }
             isStarted={isRaceDownList[21]}
+            clicked={() => {
+              if (isRaceDownList[21])
+                setSelectedCard({
+                  RoundArray:21
+                });
+            }}
           />
           <ScheduleCards
             GPName={"Qatar"}
@@ -579,6 +706,12 @@ function Schedule({ isRaceDownList = [], APIRank = [] }) {
               "https://f1flow.ru/upload/resize_cache/iblock/966/5000_240_1/xyxdp43l76ci5s961l7c84d5g0zi1ejv.png"
             }
             isStarted={isRaceDownList[22]}
+            clicked={() => {
+              if (isRaceDownList[22])
+                setSelectedCard({
+                  RoundArray:22
+                });
+            }}
           />
         </div>
         <div className="CardArea">
@@ -597,6 +730,12 @@ function Schedule({ isRaceDownList = [], APIRank = [] }) {
               "https://f1flow.ru/upload/iblock/f61/efmt784idip832jg8nfkbhvfnaq4j9t1.png"
             }
             isStarted={isRaceDownList[23]}
+            clicked={() => {
+              if (isRaceDownList[23])
+                setSelectedCard({
+                  RoundArray:23
+                });
+            }}
           />
         </div>
       </div>
