@@ -9,7 +9,8 @@ import "../CSS/ScheduleCss.css";
 import "../CSS/WeatherCss.css";
 import { useState, useEffect } from "react";
 import moment from "moment-timezone";
-import { ImOpera } from "react-icons/im";
+
+import { IoReturnUpBackOutline } from "react-icons/io5";
 
 function Compeleted() {
   const [isRaceDown, setIsRaceDown] = useState([]);
@@ -86,7 +87,13 @@ function Compeleted() {
   if (error) return <div>Error: {error.message}</div>;
   if (isRaceDown.length === 0 || podiumName.length === 0) return <div></div>;
 
-  return <Schedule isRaceDownList={isRaceDown} APIRank={podiumName} SessionKeys={sessionkey}/>;
+  return (
+    <Schedule
+      isRaceDownList={isRaceDown}
+      APIRank={podiumName}
+      SessionKeys={sessionkey}
+    />
+  );
 }
 
 function getDriverName(number) {
@@ -155,11 +162,11 @@ function getDriverName(number) {
   }
 }
 
-function Schedule({ isRaceDownList = [], APIRank = [], SessionKeys=[]}) {
+function Schedule({ isRaceDownList = [], APIRank = [], SessionKeys = [] }) {
   const [selectedCard, setSelectedCard] = useState(null);
 
-  console.log("key",SessionKeys[0])
-  
+  console.log("key", SessionKeys[0]);
+
   return (
     <>
       <Nav />
@@ -169,10 +176,19 @@ function Schedule({ isRaceDownList = [], APIRank = [], SessionKeys=[]}) {
           {selectedCard && (
             <div className="modal">
               <div className="modal-content">
+                <div className="WeatherButtonArea">
+                  <button
+                    className="WeatherButton"
+                    onClick={() => setSelectedCard(null)}
+                  >
+                   <IoReturnUpBackOutline />
+                  </button>
+                </div>
                 <h2>{selectedCard.GPName}</h2>
                 <p>{selectedCard.GPDate}</p>
-                <Weather RaceSessionKey={SessionKeys[selectedCard.RoundArray]}/>
-                <button onClick={() => setSelectedCard(null)}>關閉</button>
+                <Weather
+                  RaceSessionKey={SessionKeys[selectedCard.RoundArray]}
+                />
               </div>
             </div>
           )}
@@ -209,7 +225,7 @@ function Schedule({ isRaceDownList = [], APIRank = [], SessionKeys=[]}) {
             clicked={() => {
               if (isRaceDownList[0])
                 setSelectedCard({
-                  RoundArray:0
+                  RoundArray: 0,
                 });
             }}
           />
@@ -231,7 +247,7 @@ function Schedule({ isRaceDownList = [], APIRank = [], SessionKeys=[]}) {
             clicked={() => {
               if (isRaceDownList[1])
                 setSelectedCard({
-                  RoundArray:1
+                  RoundArray: 1,
                 });
             }}
           />
@@ -255,7 +271,7 @@ function Schedule({ isRaceDownList = [], APIRank = [], SessionKeys=[]}) {
             clicked={() => {
               if (isRaceDownList[2])
                 setSelectedCard({
-                  RoundArray:2
+                  RoundArray: 2,
                 });
             }}
           />
@@ -277,7 +293,7 @@ function Schedule({ isRaceDownList = [], APIRank = [], SessionKeys=[]}) {
             clicked={() => {
               if (isRaceDownList[3])
                 setSelectedCard({
-                  RoundArray:3
+                  RoundArray: 3,
                 });
             }}
           />
@@ -299,7 +315,7 @@ function Schedule({ isRaceDownList = [], APIRank = [], SessionKeys=[]}) {
             clicked={() => {
               if (isRaceDownList[4])
                 setSelectedCard({
-                  RoundArray:4
+                  RoundArray: 4,
                 });
             }}
           />
@@ -323,7 +339,7 @@ function Schedule({ isRaceDownList = [], APIRank = [], SessionKeys=[]}) {
             clicked={() => {
               if (isRaceDownList[5])
                 setSelectedCard({
-                  RoundArray:5
+                  RoundArray: 5,
                 });
             }}
           />
@@ -347,7 +363,7 @@ function Schedule({ isRaceDownList = [], APIRank = [], SessionKeys=[]}) {
             clicked={() => {
               if (isRaceDownList[6])
                 setSelectedCard({
-                  RoundArray:6
+                  RoundArray: 6,
                 });
             }}
           />
@@ -369,7 +385,7 @@ function Schedule({ isRaceDownList = [], APIRank = [], SessionKeys=[]}) {
             clicked={() => {
               if (isRaceDownList[7])
                 setSelectedCard({
-                  RoundArray:7
+                  RoundArray: 7,
                 });
             }}
           />
@@ -393,7 +409,7 @@ function Schedule({ isRaceDownList = [], APIRank = [], SessionKeys=[]}) {
             clicked={() => {
               if (isRaceDownList[8])
                 setSelectedCard({
-                  RoundArray:8
+                  RoundArray: 8,
                 });
             }}
           />
@@ -415,7 +431,7 @@ function Schedule({ isRaceDownList = [], APIRank = [], SessionKeys=[]}) {
             clicked={() => {
               if (isRaceDownList[9])
                 setSelectedCard({
-                  RoundArray:9
+                  RoundArray: 9,
                 });
             }}
           />
@@ -437,7 +453,7 @@ function Schedule({ isRaceDownList = [], APIRank = [], SessionKeys=[]}) {
             clicked={() => {
               if (isRaceDownList[10])
                 setSelectedCard({
-                  RoundArray:10
+                  RoundArray: 10,
                 });
             }}
           />
@@ -461,7 +477,7 @@ function Schedule({ isRaceDownList = [], APIRank = [], SessionKeys=[]}) {
             clicked={() => {
               if (isRaceDownList[11])
                 setSelectedCard({
-                  RoundArray:11
+                  RoundArray: 11,
                 });
             }}
           />
@@ -483,7 +499,7 @@ function Schedule({ isRaceDownList = [], APIRank = [], SessionKeys=[]}) {
             clicked={() => {
               if (isRaceDownList[12])
                 setSelectedCard({
-                  RoundArray:12
+                  RoundArray: 12,
                 });
             }}
           />
@@ -505,7 +521,7 @@ function Schedule({ isRaceDownList = [], APIRank = [], SessionKeys=[]}) {
             clicked={() => {
               if (isRaceDownList[13])
                 setSelectedCard({
-                  RoundArray:13
+                  RoundArray: 13,
                 });
             }}
           />
@@ -529,7 +545,7 @@ function Schedule({ isRaceDownList = [], APIRank = [], SessionKeys=[]}) {
             clicked={() => {
               if (isRaceDownList[14])
                 setSelectedCard({
-                  RoundArray:14
+                  RoundArray: 14,
                 });
             }}
           />
@@ -551,7 +567,7 @@ function Schedule({ isRaceDownList = [], APIRank = [], SessionKeys=[]}) {
             clicked={() => {
               if (isRaceDownList[15])
                 setSelectedCard({
-                  RoundArray:15
+                  RoundArray: 15,
                 });
             }}
           />
@@ -573,7 +589,7 @@ function Schedule({ isRaceDownList = [], APIRank = [], SessionKeys=[]}) {
             clicked={() => {
               if (isRaceDownList[16])
                 setSelectedCard({
-                  RoundArray:16
+                  RoundArray: 16,
                 });
             }}
           />
@@ -597,7 +613,7 @@ function Schedule({ isRaceDownList = [], APIRank = [], SessionKeys=[]}) {
             clicked={() => {
               if (isRaceDownList[17])
                 setSelectedCard({
-                  RoundArray:17
+                  RoundArray: 17,
                 });
             }}
           />
@@ -619,7 +635,7 @@ function Schedule({ isRaceDownList = [], APIRank = [], SessionKeys=[]}) {
             clicked={() => {
               if (isRaceDownList[18])
                 setSelectedCard({
-                  RoundArray:18
+                  RoundArray: 18,
                 });
             }}
           />
@@ -641,7 +657,7 @@ function Schedule({ isRaceDownList = [], APIRank = [], SessionKeys=[]}) {
             clicked={() => {
               if (isRaceDownList[19])
                 setSelectedCard({
-                  RoundArray:19
+                  RoundArray: 19,
                 });
             }}
           />
@@ -665,7 +681,7 @@ function Schedule({ isRaceDownList = [], APIRank = [], SessionKeys=[]}) {
             clicked={() => {
               if (isRaceDownList[20])
                 setSelectedCard({
-                  RoundArray:20
+                  RoundArray: 20,
                 });
             }}
           />
@@ -687,7 +703,7 @@ function Schedule({ isRaceDownList = [], APIRank = [], SessionKeys=[]}) {
             clicked={() => {
               if (isRaceDownList[21])
                 setSelectedCard({
-                  RoundArray:21
+                  RoundArray: 21,
                 });
             }}
           />
@@ -709,7 +725,7 @@ function Schedule({ isRaceDownList = [], APIRank = [], SessionKeys=[]}) {
             clicked={() => {
               if (isRaceDownList[22])
                 setSelectedCard({
-                  RoundArray:22
+                  RoundArray: 22,
                 });
             }}
           />
@@ -733,7 +749,7 @@ function Schedule({ isRaceDownList = [], APIRank = [], SessionKeys=[]}) {
             clicked={() => {
               if (isRaceDownList[23])
                 setSelectedCard({
-                  RoundArray:23
+                  RoundArray: 23,
                 });
             }}
           />

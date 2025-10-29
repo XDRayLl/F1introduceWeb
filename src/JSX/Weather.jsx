@@ -78,25 +78,24 @@ function Weather({ RaceSessionKey }) {
   // ----------------------------
   // Render 區塊
   // ----------------------------
-  if (error) return <p>⚠️ 錯誤：{error}</p>;
-  if (!weather) return <p>資料載入中...</p>;
+  if (error) return <p>Error: {error}</p>;
+  if (!weather) return <p>Loading...</p>;
 
   return (
     <div style={{ padding: "20px", fontFamily: "sans-serif" }}>
       <h2>
-        🏁 {raceInfo?.location || "未知賽道"} 天氣（Session:{" "}
-        {RaceSessionKey}）
+        🏁 {raceInfo?.location || "未知賽道"}
       </h2>
 
       <table border="1" cellPadding="6">
         <thead>
           <tr>
-            <th>時間</th>
-            <th>氣溫 (°C)</th>
-            <th>賽道溫度 (°C)</th>
-            <th>濕度 (%)</th>
-            <th>風速 (m/s)</th>
-            <th>降雨</th>
+            <th>Time</th>
+            <th>Temperature (°C)</th>
+            <th>TrackTemperature (°C)</th>
+            <th>humidity (%)</th>
+            <th>WindSpeed (m/s)</th>
+            <th>rainfall</th>
           </tr>
         </thead>
         <tbody>
@@ -106,7 +105,14 @@ function Weather({ RaceSessionKey }) {
                 <td colSpan="6">{item.note}</td>
               ) : (
                 <>
-                  <td>{item.date ?? "-"}</td>
+                  <td>
+                    {item.date
+                      ? moment
+                          .utc(item.date)
+                          .tz("Asia/Taipei")
+                          .format("YYYY/MM/DD HH:mm")
+                      : "-"}
+                  </td>
                   <td>{item.air_temperature ?? "-"}</td>
                   <td>{item.track_temperature ?? "-"}</td>
                   <td>{item.humidity ?? "-"}</td>

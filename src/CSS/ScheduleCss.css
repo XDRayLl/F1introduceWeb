@@ -7,3 +7,18 @@
 .CardAreas{
     margin:100px 0;
 }
+
+.WeatherButtonArea{
+    width: 100%;
+    display: flex;
+}
+
+.WeatherButton svg{
+    width: 30px;
+    height: 25px;
+}
+
+.WeatherButton{
+    background-color: rgba(0, 0, 0, 0);
+    border: 0;
+}
