@@ -130,7 +130,7 @@ function Weather({ RaceSessionKey }) {
 
   return (
     <div style={{ padding: "20px", fontFamily: "sans-serif" }}>
-      <h2 style={{padding:"20px",fontSize:"30px"}}>{raceInfo?.location || "未知賽道"}</h2>
+      <h2 style={{padding:"20px",fontSize:"30pxnp"}}>{raceInfo?.location || "未知賽道"}</h2>
 
       <div
         style={{
