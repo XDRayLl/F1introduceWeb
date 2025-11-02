@@ -58,7 +58,7 @@ function FindRank({ sessionKeys, RaceDate }) {
     async function fetchData() {
       try {
         const response = await fetch(
-          "https://corsproxy.io/?" + encodeURIComponent("https://api.openf1.org/v1/session_result") //比賽結果排名
+          "https://api.allorigins.win/raw?url=" + encodeURIComponent("https://api.openf1.org/v1/session_result") //比賽結果排名
         );
         const json = await response.json();
         setData(json); // 更新 state

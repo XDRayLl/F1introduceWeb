@@ -12,7 +12,7 @@ function RaceDataAPI() {
     async function fetchData() {
       try {
         const response = await fetch(
-          "https://corsproxy.io/?" + encodeURIComponent("https://api.jolpi.ca/ergast/f1/2025.json")
+          "https://api.allorigins.win/raw?url=" + encodeURIComponent("https://api.jolpi.ca/ergast/f1/2025.json")
         );
         const json = await response.json();
         setData(json); // 更新 state
