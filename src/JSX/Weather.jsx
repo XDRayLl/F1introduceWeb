@@ -31,7 +31,7 @@ function Weather({ RaceSessionKey }) {
         const sessionsCached = sessionStorage.getItem("f1sessions");
         const sessions = sessionsCached
           ? JSON.parse(sessionsCached)
-          : await (await fetch("https://api.openf1.org/v1/sessions")).json();
+          : await (await fetch("https://corsproxy.io/?" + encodeURIComponent("https://api.openf1.org/v1/sessions"))).json();
 
         if (!sessionsCached)
           sessionStorage.setItem("f1sessions", JSON.stringify(sessions));
@@ -48,7 +48,7 @@ function Weather({ RaceSessionKey }) {
         setRaceInfo(race);
 
         const res = await fetch(
-          `https://api.openf1.org/v1/weather?session_key=${RaceSessionKey}`
+          "https://corsproxy.io/?" + encodeURIComponent(`https://api.openf1.org/v1/weather?session_key=${RaceSessionKey}`)
         );
         const data = await res.json();
 
