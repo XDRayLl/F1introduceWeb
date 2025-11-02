@@ -31,24 +31,26 @@ function Weather({ RaceSessionKey }) {
         const sessionsCached = sessionStorage.getItem("f1sessions");
         const sessions = sessionsCached
           ? JSON.parse(sessionsCached)
-          : await fetch(
-              "https://api.allorigins.win/get?url=" +
-                encodeURIComponent("https://api.openf1.org/v1/sessions")
-            )
-              .then((res) => res.json())
-              .then((data) => JSON.parse(data.contents));
+          : await (await fetch("https://api.openf1.org/v1/sessions")).json();
 
         if (!sessionsCached)
           sessionStorage.setItem("f1sessions", JSON.stringify(sessions));
 
-        const res = await fetch(
-          "https://api.allorigins.win/get?url=" +
-            encodeURIComponent(
-              `https://api.openf1.org/v1/weather?session_key=${RaceSessionKey}`
-            )
+        const race = sessions.find(
+          (s) => String(s.session_key) === String(RaceSessionKey)
         );
-        const json = await res.json();
-        const data = JSON.parse(json.contents);
+
+        if (!race) {
+          setError("找不到該場比賽資訊");
+          return;
+        }
+
+        setRaceInfo(race);
+
+        const res = await fetch(
+          `https://api.openf1.org/v1/weather?session_key=${RaceSessionKey}`
+        );
+        const data = await res.json();
 
         if (!data.length) {
           setWeather([]);
@@ -128,9 +130,7 @@ function Weather({ RaceSessionKey }) {
 
   return (
     <div style={{ padding: "20px", fontFamily: "sans-serif" }}>
-      <h2 style={{ padding: "20px", fontSize: "30pxnp" }}>
-        {raceInfo?.location || "未知賽道"}
-      </h2>
+      <h2 style={{padding:"20px",fontSize:"30pxnp"}}>{raceInfo?.location || "未知賽道"}</h2>
 
       <div
         style={{
@@ -210,11 +210,7 @@ function Weather({ RaceSessionKey }) {
                 <tr key={i}>
                   <td>{item.time}</td>
                   <td className="Weathericonblock">
-                    {item.rainfall === "rain" ? (
-                      <FaCloudRain color="#00a2ffff" />
-                    ) : (
-                      <IoMdSunny color="#ffee00ff" />
-                    )}
+                    {item.rainfall === "rain" ? <FaCloudRain color="#00a2ffff"/> : <IoMdSunny color="#ffee00ff"/>}
                   </td>
                 </tr>
               ))}

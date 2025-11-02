@@ -25,8 +25,7 @@ function Compeleted() {
         const cached = sessionStorage.getItem("f1sessions");
         const json = cached
           ? JSON.parse(cached)
-          : await fetchAllOrigins("https://api.openf1.org/v1/sessions");
-
+          : await (await fetch("https://api.openf1.org/v1/sessions")).json();
         if (!cached) sessionStorage.setItem("f1sessions", JSON.stringify(json));
 
         const Today = moment();
@@ -50,7 +49,6 @@ function Compeleted() {
         setError(err);
       }
     }
-
     fetchData();
   }, []);
 
@@ -59,7 +57,10 @@ function Compeleted() {
 
     async function fetchRank() {
       try {
-        const json = await fetchAllOrigins("https://api.openf1.org/v1/session_result");
+        const response = await fetch(
+          "https://api.openf1.org/v1/session_result"
+        );
+        const json = await response.json();
 
         let Topthree = [];
         for (let key of sessionkey) {
@@ -67,7 +68,7 @@ function Compeleted() {
           let top3 = thisRace
             .filter((r) => r.position <= 3 && r.position != null)
             .sort((a, b) => a.position - b.position);
-          Topthree.push(...top3); //攤平成一維陣列
+          Topthree.push(...top3); //陣列元素攤平成一維陣列
         }
 
         let podium = Topthree.map((r) => r.driver_number);
@@ -80,7 +81,6 @@ function Compeleted() {
         setError(err);
       }
     }
-
     fetchRank();
   }, [sessionkey]);
 
@@ -95,16 +95,6 @@ function Compeleted() {
     />
   );
 }
-
-// 🔹 共用的 fetch 函式，用 AllOrigins 代理
-async function fetchAllOrigins(url) {
-  const proxyUrl = "https://api.allorigins.win/get?url=" + encodeURIComponent(url);
-  const res = await fetch(proxyUrl);
-  if (!res.ok) throw new Error("Network response was not ok.");
-  const data = await res.json();
-  return JSON.parse(data.contents);
-}
-
 
 function getDriverName(number) {
   switch (number) {

@@ -13,7 +13,7 @@ import Teams from './pages/Teams.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter basename="/F1introduceWeb">
+    <BrowserRouter>
       <Routes>
         <Route index element={<Home/>}/>
         <Route path="/Schedule" element={<Schedule/>}/>
