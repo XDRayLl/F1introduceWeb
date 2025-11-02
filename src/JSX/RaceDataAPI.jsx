@@ -5,30 +5,44 @@ import "../CSS/RaceDataAPICss.css";
 // import Countdown from "react-countdown";
 
 function RaceDataAPI() {
-  const [data, setData] = useState(null); // 存API回傳資料
+const [data, setData] = useState(null); // 存 API 回傳資料
   const [error, setError] = useState(null);
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch(
-          "https://api.allorigins.win/raw?url=" + encodeURIComponent("https://api.jolpi.ca/ergast/f1/2025.json")
-        );
-        const json = await response.json();
+        const url = "https://api.jolpi.ca/ergast/f1/2025.json";
+
+        // 使用 AllOrigins 代理
+        const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`;
+
+        const response = await fetch(proxyUrl);
+
+        if (!response.ok) {
+          throw new Error(`Network response was not ok: ${response.status}`);
+        }
+
+        const result = await response.json();
+
+        // 注意 AllOrigins 回傳的內容在 result.contents
+        const json = JSON.parse(result.contents);
+
         setData(json); // 更新 state
-        // console.log("xd: ", json);
       } catch (err) {
+        console.error("Fetch error:", err);
         setError(err);
       }
     }
+
     fetchData();
   }, []);
 
   if (error) {
     return <div>Error: {error.message}</div>;
   }
+
   if (!data) {
-    return <div></div>;
+    return <div>Loading...</div>;
   }
 
   return (
